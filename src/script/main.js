@@ -16,6 +16,11 @@ const state = {
         countDownTimerId: setInterval(countDown, 1000),
     }
 };
+function playSound(){
+    let audio = new Audio ("../src/audio/hit.m4a");
+    audio.volume = 0.2;
+    audio.play();
+}
 
 function countDown(){
     state.values.currentTime--;
@@ -47,6 +52,7 @@ function addListenerHitbox(){
                 state.values.result++;
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
+                playSound();
             }
         })
     });
